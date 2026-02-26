@@ -1,0 +1,740 @@
+# Avaluaci-del-nivell-de-protecci-davant-incendis-forestals
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaluació Protecció Incendi Forestal – IUF</title>
+  <!-- Font Inter i icones Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f9f3ef;  /* to càlid terra */
+      color: #2c2c2c;
+      line-height: 1.5;
+      padding: 30px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .q-wrapper {
+      max-width: 1400px;
+      width: 100%;
+      background: white;
+      border-radius: 36px;
+      box-shadow: 0 30px 60px -20px rgba(160, 70, 40, 0.3);
+      padding: 36px 40px;
+      transition: all 0.2s;
+    }
+
+    /* Capçalera */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #e6d3cb;
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-icon {
+      width: 70px;
+      height: 70px;
+      background: #b1624b;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 32px;
+      box-shadow: 0 8px 14px -6px #b1624b80;
+    }
+
+    .titles h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #9f513b, #c56b54);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+
+    .titles h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #a56956;
+    }
+
+    .badge {
+      background: #f7e7e1;
+      padding: 12px 20px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #eac8bc;
+      color: #703e2e;
+    }
+
+    /* Targetes d'informació inicial */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #fefaf8;
+      border: 1px solid #edd9d1;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #844b3a;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px dashed #e0c2b7;
+      padding-bottom: 10px;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 10px;
+      margin: 12px 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .field-label {
+      min-width: 100px;
+      color: #755548;
+      font-weight: 500;
+    }
+
+    .field-value {
+      flex: 1;
+      background: white;
+      border: 1px solid #edd0c6;
+      border-radius: 40px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Apartats (A, B, C, D, E) */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #9f513b;
+      margin: 30px 0 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 8px solid #c56b54;
+      padding-left: 16px;
+    }
+
+    .question-block {
+      background: #fffdfc;
+      border: 1px solid #eedbd3;
+      border-radius: 22px;
+      padding: 18px 22px;
+      margin-bottom: 16px;
+    }
+
+    .question-text {
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #4f3b35;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      background: #f9f0ec;
+      padding: 8px 18px 8px 12px;
+      border-radius: 40px;
+      border: 1px solid #e0c2b7;
+      transition: 0.1s;
+    }
+
+    .option-item:hover {
+      background: #fae6df;
+    }
+
+    .option-item input[type="radio"], 
+    .option-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #b1624b;
+      border-radius: 50%;
+      margin-right: 8px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .option-item input[type="radio"]:checked,
+    .option-item input[type="checkbox"]:checked {
+      background-color: #b1624b;
+      border-color: #b1624b;
+    }
+
+    .option-item input[type="radio"]:checked::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+
+    .option-item input[type="checkbox"]:checked::after {
+      content: "✓";
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      position: absolute;
+      top: -2px;
+      left: 2px;
+    }
+
+    .punt-badge {
+      background: #d9b6a9;
+      color: #401f15;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      margin-left: 8px;
+    }
+
+    /* Quadre de resultats */
+    .result-dashboard {
+      background: linear-gradient(145deg, #fef5f1, white);
+      border-radius: 30px;
+      border: 1px solid #e6cfc6;
+      padding: 28px;
+      margin-top: 30px;
+    }
+
+    .result-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #703e2e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subtotals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .subtotal-card {
+      background: white;
+      border: 1px solid #eac8bc;
+      border-radius: 20px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .subtotal-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #a2604b;
+      margin-bottom: 5px;
+    }
+
+    .subtotal-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #5b382c;
+    }
+
+    .total-box {
+      background: #b1624b;
+      border-radius: 60px;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      margin: 20px 0;
+    }
+
+    .total-label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #totalVal {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: white;
+      color: #b1624b;
+      padding: 10px 30px;
+      border-radius: 60px;
+    }
+
+    .interpretation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .interpret-item {
+      flex: 1 1 200px;
+      background: white;
+      border-radius: 30px;
+      padding: 16px;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+
+    .interpret-item.low { border-color: #2e7d32; background: #eaf6ea; }
+    .interpret-item.moderate { border-color: #f57c00; background: #fff2e0; }
+    .interpret-item.high { border-color: #d32f2f; background: #ffe9e9; }
+    .interpret-item.extreme { border-color: #b71c1c; background: #fde0e0; }
+
+    .interpret-range {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .interpret-desc {
+      font-size: 0.9rem;
+    }
+
+    .btn-print {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: white;
+      border: 1px solid #b1624b;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #b1624b;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .btn-print:hover {
+      background: #b1624b;
+      color: white;
+    }
+
+    .btn-print i {
+      font-size: 1.2rem;
+    }
+
+    /* Peu */
+    footer {
+      margin-top: 25px;
+      border-top: 1px solid #e6cfc6;
+      padding-top: 20px;
+      text-align: center;
+      color: #946555;
+    }
+  </style>
+</head>
+<body>
+<div class="q-wrapper">
+  <!-- Capçalera -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-icon"><i class="fas fa-tree"></i></div>
+      <div class="titles">
+        <h1>Avaluació del nivell de protecció</h1>
+        <h2>Edificacions davant risc d'incendi forestal (IUF)</h2>
+      </div>
+    </div>
+    <div class="badge">
+      <i class="fas fa-leaf"></i> Govern de les Illes Balears · DG Biodiversitat
+    </div>
+  </div>
+
+  <!-- Dades generals (targetes) -->
+  <div class="grid-2">
+    <div class="card">
+      <h3><i class="fas fa-map-marked-alt"></i> Ubicació</h3>
+      <div class="field-row"><span class="field-label">Urbanització</span><span class="field-value" contenteditable="true">[escriu]</span></div>
+      <div class="field-row"><span class="field-label">Terme municipal</span><span class="field-value" contenteditable="true">[escriu]</span></div>
+      <div class="field-row"><span class="field-label">Propietari</span><span class="field-value" contenteditable="true">[nom]</span></div>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-user"></i> Característiques</h3>
+      <div class="field-row">
+        <span class="field-label">Residència</span>
+        <div class="radio-group">
+          <label><input type="radio" name="residencia" value="resident"> Resident</label>
+          <label><input type="radio" name="residencia" value="estacional"> Estacional</label>
+        </div>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Nacionalitat</span>
+        <div class="radio-group">
+          <label><input type="radio" name="nacionalitat" value="espanyola"> Espanyola</label>
+          <label><input type="radio" name="nacionalitat" value="estrangera"> Estrangera</label>
+        </div>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Entrevistat</span>
+        <div class="radio-group">
+          <label><input type="radio" name="genere" value="home"> Home</label>
+          <label><input type="radio" name="genere" value="dona"> Dona</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APARTAT A: MESURES PREVENTIVES -->
+  <div class="section-title"><i class="fas fa-shield-alt"></i> A. MESURES PREVENTIVES</div>
+
+  <!-- A-1 -->
+  <div class="question-block" id="A1">
+    <div class="question-text"><i class="fas fa-calendar-alt"></i> A-1. Estat de la propietat quant a prevenció</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="A1" value="4"> No aplicat mesures o fa >3 anys <span class="punt-badge">4</span></label>
+      <label class="option-item"><input type="radio" name="A1" value="2"> Darrera vegada fa 1-3 anys <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="A1" value="0"> Aplica mesures anualment <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- A-2 -->
+  <div class="question-block" id="A2">
+    <div class="question-text"><i class="fas fa-gavel"></i> A-2. Coneixement de legislació/recomanacions</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="A2" value="2"> Gens <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="A2" value="1"> Un poc <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="A2" value="0"> Molt bé <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- APARTAT B: VEGETACIÓ -->
+  <div class="section-title"><i class="fas fa-seedling"></i> B. VEGETACIÓ A L’ENTORN</div>
+
+  <!-- B-1 Naturalesa -->
+  <div class="question-block" id="B1">
+    <div class="question-text">B-1. Naturalesa de la vegetació</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="B1" value="4"> Coníferes (pi, pi+arbust...) <span class="punt-badge">4</span></label>
+      <label class="option-item"><input type="radio" name="B1" value="3"> Arbustives (xiprer, bruc, càrritx...) <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="B1" value="2"> Frondoses (alzinar, ullastre...) <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="B1" value="1"> Pastura (conreus, herbàcia) <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="B1" value="0"> Sòl nu o llaurat <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- B-2 Estructura i alçada -->
+  <div class="question-block" id="B2">
+    <div class="question-text">B-2. Estructura i alçada de la vegetació</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="B2" value="3"> Densa i alta (>1,5 m) <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="B2" value="2"> Densa i mitjana (~1,5 m) <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="B2" value="1"> Densa i baixa (<1,5 m) <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="B2" value="0"> Clara <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- B-3 Distància -->
+  <div class="question-block" id="B3">
+    <div class="question-text">B-3. Distància de la vegetació forestal a l’edificació</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="B3" value="3"> En contacte <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="B3" value="1"> A més de 5 metres <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="B3" value="0"> A més de 10 metres <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- APARTAT C: ENTORN GENERAL -->
+  <div class="section-title"><i class="fas fa-mountain"></i> C. DESCRIPCIÓ GENERAL DE L’ENTORN</div>
+
+  <!-- C-1 Ubicació topogràfica -->
+  <div class="question-block" id="C1">
+    <div class="question-text">C-1. L’edificació està:</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="C1" value="3"> Fons d’una vall <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="C1" value="2"> Pendent fort (>10%) <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="C1" value="1"> Pendent suau (<10%) <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="C1" value="0"> Terreny pla <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- C-2 Mobiliari exterior (pot ser múltiple) -->
+  <div class="question-block" id="C2">
+    <div class="question-text">C-2. Mobiliari exterior (marca els que hi hagi)</div>
+    <div class="options">
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="C2" value="2"> Mobles de PVC <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="C2" value="1"> Mobles de fusta <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="C2" value="0"> Elements pedra/ferro <span class="punt-badge">0</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="C2" value="2"> Tendals o ombrel·les <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="C2" value="3"> Barbacoa <span class="punt-badge">3</span></label>
+    </div>
+  </div>
+
+  <!-- C-3 Emmagatzematge exterior (primera part) -->
+  <div class="question-block" id="C3a">
+    <div class="question-text">C-3. S’emmagatzemen materials a l’exterior?</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="C3mat" value="0"> No <span class="punt-badge">0</span></label>
+      <label class="option-item"><input type="radio" name="C3mat" value="4"> Sí, materials inflamables (pintures...) <span class="punt-badge">4</span></label>
+      <label class="option-item"><input type="radio" name="C3mat" value="3"> Sí, depòsit gas / líquid inflamable <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="C3mat" value="2"> Sí, llenya <span class="punt-badge">2</span></label>
+    </div>
+  </div>
+
+  <!-- C-3 Distància (només aplicable si s'ha marcat alguna opció diferent de "No") -->
+  <div class="question-block" id="C3b">
+    <div class="question-text">Distància dels materials a l’edificació</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="C3dist" value="3"> En contacte <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="C3dist" value="2"> A menys de 50 m <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="C3dist" value="0"> A més de 50 m o enterrat <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- APARTAT D: SITUACIÓ DE L’EDIFICACIÓ -->
+  <div class="section-title"><i class="fas fa-road"></i> D. SITUACIÓ DE L’EDIFICACIÓ</div>
+
+  <!-- D-1 Vies accés -->
+  <div class="question-block" id="D1">
+    <div class="question-text">D-1. Vies d’accés a l’edificació</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="D1" value="2"> Una sola via <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="D1" value="0"> Més d’una via <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- D-2 Tancament -->
+  <div class="question-block" id="D2">
+    <div class="question-text">D-2. La parcel·la té tancament?</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="D2" value="3"> No té tancament o reixa metàl·lica <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="D2" value="5"> Bardissa alta inflamabilitat (xiprer, bruc...) <span class="punt-badge">5</span></label>
+      <label class="option-item"><input type="radio" name="D2" value="0"> Mur de paret seca, formigó... <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- D-3 Barreres d’accés -->
+  <div class="question-block" id="D3">
+    <div class="question-text">D-3. Les barreres d’accés s’obrin amb:</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="D3" value="2"> Porter automàtic <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="D3" value="1"> Obertura manual <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="D3" value="0"> No està mai tancat <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- APARTAT E: DESCRIPCIÓ DE L’EDIFICACIÓ -->
+  <div class="section-title"><i class="fas fa-home"></i> E. DESCRIPCIÓ DE L’EDIFICACIÓ</div>
+
+  <!-- E-1 Materials construcció -->
+  <div class="question-block" id="E1">
+    <div class="question-text">E-1. Materials de construcció</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="E1" value="5"> Fusta <span class="punt-badge">5</span></label>
+      <label class="option-item"><input type="radio" name="E1" value="1"> Material d’obra amb bigues fusta sobresortints <span class="punt-badge">1</span></label>
+      <label class="option-item"><input type="radio" name="E1" value="0"> Material d’obra sense bigues fusta <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- E-2 Coberta -->
+  <div class="question-block" id="E2">
+    <div class="question-text">E-2. Coberta</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="E2" value="3"> Presència material vegetal a teulada <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="E2" value="2"> Tela asfàltica, quitrà, cautxú <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="E2" value="0"> Teula àrab, fibrociment, mixta <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- E-3 Canals -->
+  <div class="question-block" id="E3">
+    <div class="question-text">E-3. Canals</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="E3" value="3"> Presència material vegetal mort <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="E3" value="2"> PVC <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="radio" name="E3" value="0"> Un altre material (metall, obra...) <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <!-- E-4 Fusteria finestres i persianes (separat en dos grups per permetre múltiples) -->
+  <div class="question-block" id="E4a">
+    <div class="question-text">E-4. Finestres (material)</div>
+    <div class="options">
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4fin" value="3"> PVC <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4fin" value="2"> Fusta <span class="punt-badge">2</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4fin" value="0"> Alumini o acer <span class="punt-badge">0</span></label>
+    </div>
+  </div>
+
+  <div class="question-block" id="E4b">
+    <div class="question-text">Persianes</div>
+    <div class="options">
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4per" value="5"> Sense persianes <span class="punt-badge">5</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4per" value="4"> PVC <span class="punt-badge">4</span></label>
+      <label class="option-item"><input type="checkbox" class="cbSum" data-group="E4per" value="1"> Fusta massissa (>2 cm) <span class="punt-badge">1</span></label>
+    </div>
+  </div>
+
+  <!-- E-5 Contacte exterior (xemeneia) -->
+  <div class="question-block" id="E5">
+    <div class="question-text">E-5. Contacte amb l’exterior (xemeneia)</div>
+    <div class="options">
+      <label class="option-item"><input type="radio" name="E5" value="3"> Xemeneia lliure <span class="punt-badge">3</span></label>
+      <label class="option-item"><input type="radio" name="E5" value="1"> Amb reixa o mataespurnes <span class="punt-badge">1</span></label>
+    </div>
+  </div>
+
+  <!-- DASHBOARD RESULTATS -->
+  <div class="result-dashboard">
+    <div class="result-title"><i class="fas fa-chart-bar"></i> SÍNTESI DEL QÜESTIONARI</div>
+    <div class="subtotals-grid">
+      <div class="subtotal-card"><div class="subtotal-label">A. Preventives</div><div class="subtotal-value" id="totalA">0</div></div>
+      <div class="subtotal-card"><div class="subtotal-label">B. Vegetació</div><div class="subtotal-value" id="totalB">0</div></div>
+      <div class="subtotal-card"><div class="subtotal-label">C. Entorn</div><div class="subtotal-value" id="totalC">0</div></div>
+      <div class="subtotal-card"><div class="subtotal-label">D. Situació</div><div class="subtotal-value" id="totalD">0</div></div>
+      <div class="subtotal-card"><div class="subtotal-label">E. Edificació</div><div class="subtotal-value" id="totalE">0</div></div>
+    </div>
+
+    <div class="total-box">
+      <span class="total-label"><i class="fas fa-fire"></i> PUNTUACIÓ TOTAL</span>
+      <span id="totalVal">0</span>
+    </div>
+
+    <div class="interpretation">
+      <div class="interpret-item low" id="rbaix"><span class="interpret-range">0-15</span><br><span class="interpret-desc">Relativament ben protegida</span></div>
+      <div class="interpret-item moderate" id="rmod"><span class="interpret-range">16-31</span><br><span class="interpret-desc">Vulnerable</span></div>
+      <div class="interpret-item high" id="ralt"><span class="interpret-range">32-46</span><br><span class="interpret-desc">Molt vulnerable</span></div>
+      <div class="interpret-item extreme" id="rext"><span class="interpret-range">≥47</span><br><span class="interpret-desc">Extremadament vulnerable</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-tree"></i> Direcció General de Biodiversitat · Conselleria de Medi Ambient i Mobilitat · Govern de les Illes Balears
+  </footer>
+</div>
+
+<!-- Botó imprimir -->
+<button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i> Imprimir resultats</button>
+
+<script>
+  (function() {
+    // Funció per llegir valors de radio buttons agrupats per nom
+    function getRadioValue(name) {
+      const radio = document.querySelector(`input[name="${name}"]:checked`);
+      return radio ? parseInt(radio.value) : 0;
+    }
+
+    // Funció per sumar checkboxes d'un grup (data-group)
+    function sumCheckboxGroup(group) {
+      let total = 0;
+      document.querySelectorAll(`.cbSum[data-group="${group}"]:checked`).forEach(cb => {
+        total += parseInt(cb.value) || 0;
+      });
+      return total;
+    }
+
+    // Funció principal de càlcul
+    function calcularTotals() {
+      // A
+      let A = getRadioValue('A1') + getRadioValue('A2');
+      document.getElementById('totalA').innerText = A;
+
+      // B
+      let B = getRadioValue('B1') + getRadioValue('B2') + getRadioValue('B3');
+      document.getElementById('totalB').innerText = B;
+
+      // C
+      let C = getRadioValue('C1') + sumCheckboxGroup('C2') + getRadioValue('C3mat') + getRadioValue('C3dist');
+      document.getElementById('totalC').innerText = C;
+
+      // D
+      let D = getRadioValue('D1') + getRadioValue('D2') + getRadioValue('D3');
+      document.getElementById('totalD').innerText = D;
+
+      // E
+      let E = getRadioValue('E1') + getRadioValue('E2') + getRadioValue('E3') + sumCheckboxGroup('E4fin') + sumCheckboxGroup('E4per') + getRadioValue('E5');
+      document.getElementById('totalE').innerText = E;
+
+      let total = A + B + C + D + E;
+      document.getElementById('totalVal').innerText = total;
+
+      // Opcional: ressaltar interval
+    }
+
+    // Afegir event listeners a tots els inputs rellevants
+    const inputs = document.querySelectorAll('input[type=radio], input[type=checkbox]');
+    inputs.forEach(inp => inp.addEventListener('change', calcularTotals));
+
+    // Inicialitzar
+    calcularTotals();
+  })();
+</script>
+</body>
+</html>
